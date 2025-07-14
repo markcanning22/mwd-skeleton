@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Description: "MWD Skeleton Stack"
+
+Resources:
+  ApiLambda:
+    Type: AWS::CloudFormation::Stack
+    Description: API Lambda
+    Properties:
+      TemplateURL: ./templates/lambda.yml
+
+  ApiGateway:
+    Type: AWS::CloudFormation::Stack
+    Description: API Gateway
+    Properties:
+      TemplateURL: ./templates/api-gateway.yml
+      Parameters:
+        ApiLambdaArn: !GetAtt ApiLambda.Outputs.ApiLambdaArn

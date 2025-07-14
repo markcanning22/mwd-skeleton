@@ -1,0 +1,53 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Description: "API Lambda"
+
+Resources:
+  ApiLambdaLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: /aws/lambda/ApiLambda
+      LogGroupClass: STANDARD
+      RetentionInDays: 90
+    DeletionPolicy: Delete
+    UpdateReplacePolicy: Delete
+
+  ApiLambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: ApiLambdaExecutionRole
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: ApiLambdaPolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: !GetAtt ApiLambdaLogGroup.Arn
+
+  ApiLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: ApiLambda
+      Runtime: nodejs22.x
+      Handler: lambda.handler
+      Role: !GetAtt ApiLambdaRole.Arn
+      Code:
+        ZipFile: // API lambda
+      Timeout: 30
+
+Outputs:
+  ApiLambdaArn:
+    Description: "ARN of the API Lambda function"
+    Value: !GetAtt ApiLambda.Arn
+    Export:
+      Name: ApiLambdaArn

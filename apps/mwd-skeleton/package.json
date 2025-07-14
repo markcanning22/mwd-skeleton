@@ -50,6 +50,12 @@
           }
         }
       },
+      "postbuild": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "NX_TASK_TARGET_PROJECT=@mwd-skeleton/mwd-skeleton ts-node tools/create-package-json.ts"
+        }
+      },
       "serve": {
         "continuous": true,
         "executor": "@nx/js:node",

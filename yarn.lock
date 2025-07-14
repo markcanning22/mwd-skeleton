@@ -2172,6 +2172,7 @@ __metadata:
     "@fastify/autoload": "npm:~6.0.3"
     "@fastify/aws-lambda": "npm:^5.1.4"
     "@fastify/sensible": "npm:~6.0.2"
+    "@nx/devkit": "npm:^21.2.3"
     "@nx/esbuild": "npm:21.2.3"
     "@nx/eslint": "npm:21.2.3"
     "@nx/eslint-plugin": "npm:21.2.3"
@@ -2264,7 +2265,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nx/devkit@npm:21.2.3":
+"@nx/devkit@npm:21.2.3, @nx/devkit@npm:^21.2.3":
   version: 21.2.3
   resolution: "@nx/devkit@npm:21.2.3"
   dependencies:
