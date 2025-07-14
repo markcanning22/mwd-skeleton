@@ -8,6 +8,9 @@
     },
     {
       "path": "./apps/mwd-skeleton"
+    },
+    {
+      "path": "./libs/shared"
     }
   ]
 }

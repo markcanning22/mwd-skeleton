@@ -2149,6 +2149,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@mwd-skeleton/shared@workspace:libs/shared":
+  version: 0.0.0-use.local
+  resolution: "@mwd-skeleton/shared@workspace:libs/shared"
+  dependencies:
+    tslib: "npm:^2.3.0"
+  languageName: unknown
+  linkType: soft
+
 "@mwd-skeleton/source@workspace:.":
   version: 0.0.0-use.local
   resolution: "@mwd-skeleton/source@workspace:."
@@ -2177,6 +2185,7 @@ __metadata:
     fastify-plugin: "npm:~5.0.1"
     jest: "npm:^29.7.0"
     jest-environment-node: "npm:^29.7.0"
+    jsonc-eslint-parser: "npm:^2.1.0"
     nx: "npm:21.2.3"
     prettier: "npm:^2.6.2"
     ts-jest: "npm:^29.1.0"
