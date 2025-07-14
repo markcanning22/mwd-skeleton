@@ -1675,6 +1675,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fastify/aws-lambda@npm:^5.1.4":
+  version: 5.1.4
+  resolution: "@fastify/aws-lambda@npm:5.1.4"
+  checksum: 10c0/824ace6c71804be56e984fef925e257f1417e3bd38db348aa2559dbbfe56201ac37f3ff9df2db7db8118482733188e402a35eb54adffcee0e6deeea02598b7b0
+  languageName: node
+  linkType: hard
+
 "@fastify/error@npm:^4.0.0":
   version: 4.2.0
   resolution: "@fastify/error@npm:4.2.0"
@@ -2163,6 +2170,7 @@ __metadata:
   dependencies:
     "@eslint/js": "npm:^9.8.0"
     "@fastify/autoload": "npm:~6.0.3"
+    "@fastify/aws-lambda": "npm:^5.1.4"
     "@fastify/sensible": "npm:~6.0.2"
     "@nx/esbuild": "npm:21.2.3"
     "@nx/eslint": "npm:21.2.3"

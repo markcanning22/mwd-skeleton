@@ -30,7 +30,16 @@
           }
         },
         "configurations": {
-          "development": {},
+          "local": {},
+          "development": {
+            "main": "apps/mwd-skeleton/src/lambda.ts",
+            "esbuildOptions": {
+              "sourcemap": false,
+              "outExtension": {
+                ".js": ".js"
+              }
+            }
+          },
           "production": {
             "esbuildOptions": {
               "sourcemap": false,
@@ -53,6 +62,7 @@
           "runBuildTargetDependencies": false
         },
         "configurations": {
+          "local": {},
           "development": {
             "buildTarget": "@mwd-skeleton/mwd-skeleton:build:development"
           },
