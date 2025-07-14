@@ -1,0 +1,71 @@
+{
+  "name": "@mwd-skeleton/mwd-skeleton",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "targets": {
+      "build": {
+        "executor": "@nx/esbuild:esbuild",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "defaultConfiguration": "production",
+        "options": {
+          "platform": "node",
+          "outputPath": "apps/mwd-skeleton/dist",
+          "format": [
+            "cjs"
+          ],
+          "bundle": false,
+          "main": "apps/mwd-skeleton/src/main.ts",
+          "tsConfig": "apps/mwd-skeleton/tsconfig.app.json",
+          "assets": [
+            "apps/mwd-skeleton/src/assets"
+          ],
+          "esbuildOptions": {
+            "sourcemap": true,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        },
+        "configurations": {
+          "development": {},
+          "production": {
+            "esbuildOptions": {
+              "sourcemap": false,
+              "outExtension": {
+                ".js": ".js"
+              }
+            }
+          }
+        }
+      },
+      "serve": {
+        "continuous": true,
+        "executor": "@nx/js:node",
+        "defaultConfiguration": "development",
+        "dependsOn": [
+          "build"
+        ],
+        "options": {
+          "buildTarget": "@mwd-skeleton/mwd-skeleton:build",
+          "runBuildTargetDependencies": false
+        },
+        "configurations": {
+          "development": {
+            "buildTarget": "@mwd-skeleton/mwd-skeleton:build:development"
+          },
+          "production": {
+            "buildTarget": "@mwd-skeleton/mwd-skeleton:build:production"
+          }
+        }
+      },
+      "test": {
+        "options": {
+          "passWithNoTests": true
+        }
+      }
+    }
+  }
+}

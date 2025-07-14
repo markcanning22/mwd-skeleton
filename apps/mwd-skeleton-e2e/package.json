@@ -1,0 +1,26 @@
+{
+  "name": "@mwd-skeleton/mwd-skeleton-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@mwd-skeleton/mwd-skeleton"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/mwd-skeleton-e2e/jest.config.ts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@mwd-skeleton/mwd-skeleton:build",
+          "@mwd-skeleton/mwd-skeleton:serve"
+        ]
+      }
+    }
+  }
+}
